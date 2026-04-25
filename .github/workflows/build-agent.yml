@@ -50,7 +50,8 @@ jobs:
 
           RUN cd /agent/build && \
               cmake -DCMAKE_INSTALL_PREFIX=../install .. && \
-              make -j$(nproc) && make install
+              make -j$(nproc) && make install && \
+              cp agent.refs ../install/
 
           RUN cd /agent && \
               tar -czvf install.tar.gz -C install .
