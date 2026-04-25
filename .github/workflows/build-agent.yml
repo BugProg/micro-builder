@@ -6,7 +6,7 @@ on:
       tag:
         description: "Git tag to build"
         required: true
-        default: "v2.4.1"
+        default: "v3.0.1"
 
 jobs:
   build:
@@ -77,7 +77,8 @@ jobs:
 
       - name: Prepare release asset
         run: |
-          mv out/install.tar.gz microxrce-agent-${{ github.event.inputs.tag }}-arm64.tar.gz
+          ls
+          mv out/dest/install.tar.gz microxrce-agent-${{ github.event.inputs.tag }}-arm64.tar.gz
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
